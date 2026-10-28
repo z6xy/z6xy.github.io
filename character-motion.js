@@ -86,7 +86,7 @@
   paper.querySelector('.journey-paper-crease').setAttribute('d',creases);
   track.querySelector('.journey-rope').setAttribute('d','M '+startX+' 0 L '+startX+' '+startY);
   const dot=track.querySelector('circle');dot.setAttribute('cx',startX);dot.setAttribute('cy',startY);
-  const label=track.querySelector('.journey-landing-label');label.style.left=(startX+12)+'px';label.style.top=(startY+50)+'px';routeLength=road.getTotalLength();
+  const label=track.querySelector('.journey-landing-label');if(label){label.style.left=(startX+12)+'px';label.style.top=(startY+50)+'px';}routeLength=road.getTotalLength();
   const moon=document.querySelector('#moon-cloud'),tether=document.querySelector('#moon-tether'),main=document.querySelector('main');
   if(moon&&tether&&moon.complete){const a=moon.getBoundingClientRect(),b=main.getBoundingClientRect(),c=track.getBoundingClientRect(),sx=c.left-b.left+startX,sy=a.top-b.top+a.height*.84,ex=c.left-b.left+startX,ey=c.top-b.top+startY;
    tether.setAttribute('preserveAspectRatio','none');tether.setAttribute('viewBox','0 0 '+main.clientWidth+' '+main.clientHeight);tether.querySelector('path').setAttribute('d','M '+sx+' '+sy+' C '+sx+' '+(sy+60)+' '+ex+' '+(sy+110)+' '+ex+' '+Math.min(ey,sy+170)+' L '+ex+' '+ey);
